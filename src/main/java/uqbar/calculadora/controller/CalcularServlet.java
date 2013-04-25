@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import uqbar.calculadora.domain.Calculadora;
 
+/**
+ * @author ui
+ */
 public class CalcularServlet extends HttpServlet {
 
 	private double variableLoca = 0;
@@ -21,11 +24,9 @@ public class CalcularServlet extends HttpServlet {
 		// Adaptar lo que la vista nos da para que el negocio lo reciba
 		double arg1 = Double.parseDouble(request.getParameter("arg1"));
 		double arg2 = Double.parseDouble(request.getParameter("arg2"));
-//		variableLoca++;
 
 		// Hablar con los objetos de negocio
 		Calculadora calculadora = new Calculadora(arg1, arg2);
-//		Calculadora calculadora = new Calculadora(arg1, variableLoca);
 		double resultado = calculadora.sumar();
 
 		// Manejar el estado --> usamos como contenedor el scope request

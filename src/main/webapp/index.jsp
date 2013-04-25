@@ -6,30 +6,36 @@
 <head>
 	<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8" />
 	<title>Calculadora</title>
-	<link rel="stylesheet" type="text/css" href="styles.css" />
-	<!--
-	<link type="text/css" rel="stylesheet" href="styles/conversor.css" />
-	-->
+	<link rel="stylesheet" type="text/css" href="styles/calculadora.css" />
 </head>
 
 <body>
-<h2>Calculadora</h2>
-
-<form method="post" action="calcular">
-	Ingrese un n&uacute;mero:
-	<input type="text" name="arg1" value="${param.arg1}"/>
-	<br/>
-	
-	Otro:
-	<input type="text" name="arg2" value="${param.arg2}"/>
-	<br/>
-	
-	<input type="submit" value="Sumar" />	
-</form>
-
-<% if (request.getAttribute("resultado") != null) { // abro%>
-	<p>El resultado es ${resultado}</p>
-<% } // cierro %>
-
+<div class="content">
+	<h2>Calculadora</h2>
+	<form method="post" action="calcular">
+		<div id="formularioCalculadora">
+		<table>
+			<tr>
+				<td>Ingrese un n&uacute;mero</td>
+				<td><input type="text" name="arg1" value="${param.arg1}"/></td>
+			</tr>
+			<tr>
+				<td>Otro</td>
+				<td><input type="text" name="arg2" value="${param.arg2}"/></td>
+			</tr>
+			<tr class="botones">
+				<td colspan="2"><input type="submit" value="Sumar" /></td>
+			</tr>
+		</table>
+		</div>
+		<% if (request.getAttribute("resultado") != null) { // abro%>
+			<div id="resultado">
+				<p>El resultado es:<br/>
+					<span class="resultadoCuenta">${resultado}</span>
+				</p>
+			</div>
+		<% } // cierro %>
+	</form>
+</div>
 </body>
 </html>
